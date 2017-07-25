@@ -435,6 +435,11 @@ def build_stack_template(ops, dry_run):
                 sub_values       = userdata_vars,
             ),
             InstanceType = "t2.small",
+            BlockDeviceMappings= [ trop.ec2.BlockDeviceMapping(
+                                       DeviceName="/dev/xvda",
+                                       Ebs=trop.ec2.EBSBlockDevice( VolumeType = "gp2", VolumeSize=50)
+                                     ),
+                                 ],
             SubnetId = subnet,
             SecurityGroupIds = sec_grps,
             IamInstanceProfile = app_cfn_options.resource['build_stack_profile'],

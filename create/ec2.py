@@ -730,7 +730,7 @@ def multipart_userdata(
                 "[/var/log/cloud-init-output]\n",
                 "file = /var/log/cloud-init-output.log\n",
                 "log_group_name = ${LOG_GROUP}\n",
-                "log_stream_name = [INSTANCEID]/cloud-init-output.log\n",
+                "log_stream_name = {hostname}/cloud-init-output.log\n",
                 "datetime_format = %b %d %H:%M:%S"
             ])),
             path = "/etc/awslogs/awslogs.conf.disabled",
